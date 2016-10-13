@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>Entries</h1>
+    <div class="col-lg-12">
+      <ul>
+        <li><a href="new_entry">Add a New Entry</a></li>
+      </ul>
+    </div>
+    <br><br>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </tr>
+      {% for entry in entry_list %}
+      <tr>
+        <td><a href="update_entry?id={{entry.id}}">{{entry.name}}</a></td>
+        <td>{{entry.phone_number}}</td>
+        <td>{{entry.email}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}
